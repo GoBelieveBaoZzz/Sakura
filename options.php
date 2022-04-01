@@ -874,13 +874,6 @@ function optionsframework_options()
         'type' => 'checkbox');
 
     $options[] = array(
-        'name' => __('Enable disqus', 'sakura'), /*开启多说插件支持*/
-        'desc' => __('Enable disqus for comment', 'sakura'), /*多说已经凉了*/
-        'id' => 'general_disqus_plugin_support',
-        'std' => '0',
-        'type' => 'checkbox');
-
-    $options[] = array(
         'name' => __('Time Zone adjustment', 'sakura'), /*时区调整*/
         'desc' => __('If the comment has a time difference problem adjust here, fill in an integer, the calculation method: actual_time = display_error_time - the_integer_you_entered (unit: hour)', 'sakura'), /*如果评论出现时差问题在这里调整，填入一个整数，计算方法：实际时间=显示错误的时间-你输入的整数（单位：小时）*/
         'id' => 'time_zone_fix',
