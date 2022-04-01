@@ -112,14 +112,14 @@ function optionsframework_options()
 
     $options[] = array(
         'name' => __('Site title', 'sakura'), /*站点名称*/
-        'desc' => __('Mashiro\'s Blog', 'sakura'),
+        'desc' => __('Akina\'s Blog', 'sakura'),
         'id' => 'site_name',
         'std' => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('Author', 'sakura'), /*作者*/
-        'desc' => __('Mashiro', 'sakura'),
+        'desc' => __('Akina', 'sakura'),
         'id' => 'author_name',
         'std' => '',
         'type' => 'text');
@@ -333,7 +333,7 @@ function optionsframework_options()
         'name' => __('Footer info', 'sakura'), /*页脚信息*/
         'desc' => __('Footer description, support for HTML code', 'sakura'), /*页脚说明文字，支持HTML代码*/
         'id' => 'footer_info',
-        'std' => 'Copyright &copy; by Mashiro All Rights Reserved.',
+        'std' => 'Copyright &copy; by Akina All Rights Reserved.',
         'type' => 'textarea');
 
     $options[] = array(
@@ -760,9 +760,9 @@ function optionsframework_options()
  
     $options[] = array(
         'name' => __('Gravatar avatar proxy', 'sakura'),
-        'desc' => __('A front-ed proxy for Gravatar, eg. gravatar.2heng.xin/avatar . Leave it blank if you do not need.', 'sakura'),
+        'desc' => __('A front-ed proxy for Gravatar, eg. cdn.v2ex.com/gravatar . Leave it blank if you do not need.', 'sakura'),
         'id' => 'gravatar_proxy',
-        'std' => "gravatar.2heng.xin/avatar",
+        'std' => "cdn.v2ex.com/gravatar",
         'type' => "text");
 
     $options[] = array(
@@ -1043,7 +1043,7 @@ function optionsframework_options()
 
     $options[] = array(
         'name' => __('About', 'sakura'), /*关于*/
-        'desc' => sprintf(__('Theme Sakura v %s  |  <a href="https://2heng.xin/theme-sakura/">Theme document</a>  |  <a href="https://github.com/mashirozx/Sakura/">Source code</a><a href="https://github.com/mashirozx/Sakura/releases/latest"><img src="https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-square" alt="GitHub release"></a>', 'sakura'), SAKURA_VERSION), /*Theme Sakura v'.SAKURA_VERSION.'  |  <a href="https://2heng.xin/theme-sakura/">主题说明</a>  |  <a href="https://github.com/mashirozx/Sakura/">源码</a><a href="https://github.com/mashirozx/Sakura/releases/latest"><img src="https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-square" alt="GitHub release"></a>*/
+        'desc' => sprintf(__('Theme Akina v %s  |  <a href="https://2heng.xin/theme-sakura/">Theme document</a>  |  <a href="https://github.com/mashirozx/Sakura/">Source code</a><a href="https://github.com/mashirozx/Sakura/releases/latest"><img src="https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-square" alt="GitHub release"></a>', 'sakura'), SAKURA_VERSION), /*Theme Akina v'.SAKURA_VERSION.'  |  <a href="https://2heng.xin/theme-sakura/">主题说明</a>  |  <a href="https://github.com/mashirozx/Sakura/">源码</a><a href="https://github.com/mashirozx/Sakura/releases/latest"><img src="https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-square" alt="GitHub release"></a>*/
         'id' => 'theme_intro',
         'std' => '',
         'type' => 'typography ');

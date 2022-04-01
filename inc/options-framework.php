@@ -179,8 +179,8 @@ function optionsframework_setdefaults() {
 function optionsframework_menu_settings() {
 
 	$menu = array(
-		'page_title' => __('Sakura Options', 'sakura'),
-		'menu_title' => __('Sakura Options', 'sakura'),
+		'page_title' => __('Akina Options', 'sakura'),
+		'menu_title' => __('Akina Options', 'sakura'),
 		'capability' => 'edit_theme_options',
 		'menu_slug' => 'options-framework',
 		'callback' => 'optionsframework_page'
@@ -409,7 +409,7 @@ function optionsframework_adminbar() {
 	$wp_admin_bar->add_menu( array(
 			'parent' => 'appearance',
 			'id' => 'of_theme_options',
-			'title' => __('Sakura Options', 'sakura'),
+			'title' => __('Akina Options', 'sakura'),
 			'href' => admin_url( 'themes.php?page=options-framework' )
 		));
 }
