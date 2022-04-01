@@ -4,11 +4,11 @@
  * @url https://2heng.xin
  * @date 2019.8.3
  */
-mashiro_global.variables = new function () {
+akina_js_global.variables = new function () {
     this.has_hls = false;
     this.skinSecter = true;
 }
-mashiro_global.ini = new function () {
+akina_js_global.ini = new function () {
     this.normalize = function () { // initial functions when page first load (首次加载页面时的初始化函数)
         lazyload();
         social_share();
@@ -37,11 +37,11 @@ function setCookie(name, value, days) {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + mashiro_option.cookie_version_control + "=" + (value || "") + expires + "; path=/";
+    document.cookie = name + akina_js_option.cookie_version_control + "=" + (value || "") + expires + "; path=/";
 }
 
 function getCookie(name) {
-    var nameEQ = name + mashiro_option.cookie_version_control + "=";
+    var nameEQ = name + akina_js_option.cookie_version_control + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
@@ -52,7 +52,7 @@ function getCookie(name) {
 }
 
 function removeCookie(name) {
-    document.cookie = name + mashiro_option.cookie_version_control + '=; Max-Age=-99999999;';
+    document.cookie = name + akina_js_option.cookie_version_control + '=; Max-Age=-99999999;';
 }
 
 function imgError(ele, type) {
@@ -103,7 +103,7 @@ function post_list_show_animation() {
         })
     }
 }
-mashiro_global.font_control = new function () {
+akina_js_global.font_control = new function () {
     this.change_font = function () {
         if ($("body").hasClass("serif")) {
             $("body").removeClass("serif");
@@ -132,7 +132,7 @@ mashiro_global.font_control = new function () {
         }
     }
 }
-mashiro_global.font_control.ini();
+akina_js_global.font_control.ini();
 
 function code_highlight_style() {
     function gen_top_bar(i) {
@@ -312,7 +312,7 @@ function scrollBar() {
 }
 
 function checkskinSecter() {
-    if (mashiro_global.variables.skinSecter === false) {
+    if (akina_js_global.variables.skinSecter === false) {
         $(".pattern-center").removeClass('pattern-center').addClass('pattern-center-sakura');
         $(".headertop-bar").removeClass('headertop-bar').addClass('headertop-bar-sakura');
     } else {
@@ -334,7 +334,7 @@ function checkDarkModeCookie() {
     var dark = getCookie("dark"),
         today = new Date(),
         hour = today.getHours();
-        if (mashiro_option.darkmode && ((!dark && (hour > 21 || hour < 7) ) || (dark == '1' && (hour >= 22 || hour <= 6)))) {
+        if (akina_js_option.darkmode && ((!dark && (hour > 21 || hour < 7) ) || (dark == '1' && (hour >= 22 || hour <= 6)))) {
             setTimeout(function () {
                 $("#dark-bg").click();
             }, 100);
@@ -390,10 +390,10 @@ $(document).ready(function () {
             var tagid = this.id;
             cached.on("click", "#" + tagid, function () {
                 if (tagid == "white-bg" || tagid == "dark-bg") {
-                    mashiro_global.variables.skinSecter = true;
+                    akina_js_global.variables.skinSecter = true;
                     checkskinSecter();
                 } else {
-                    mashiro_global.variables.skinSecter = false;
+                    akina_js_global.variables.skinSecter = false;
                     checkskinSecter();
                 }
                 if (tagid == "dark-bg") {
@@ -415,28 +415,28 @@ $(document).ready(function () {
                 }
                 switch (tagid) {
                     case "white-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg0) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg0) + ")");
                         break;
                     case "sakura-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg1) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg1) + ")");
                         break;
                     case "gribs-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg2) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg2) + ")");
                         break;
                     case "pixiv-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg3) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg3) + ")");
                         break;
                     case "KAdots-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg4) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg4) + ")");
                         break;
                     case "totem-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg5) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg5) + ")");
                         break;
                     case "bing-bg":
-                        $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg6) + ")");
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg6) + ")");
                         break;
                     // case "dark-bg":
-                    //     $("body").css("background-image", "url(" + checkskin_bg(mashiro_option.skin_bg7) + ")");
+                    //     $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg7) + ")");
                     //     break;
                 }
                 closeSkinMenu();
@@ -462,13 +462,13 @@ $(document).ready(function () {
 var bgn = 1;
 
 function nextBG() {
-    $(".centerbg").css("background-image", "url(" + mashiro_option.cover_api + "?" + bgn + ")");
+    $(".centerbg").css("background-image", "url(" + akina_js_option.cover_api + "?" + bgn + ")");
     bgn = bgn + 1;
 }
 
 function preBG() {
     bgn = bgn - 1;
-    $(".centerbg").css("background-image", "url(" + mashiro_option.cover_api + "?" + bgn + ")");
+    $(".centerbg").css("background-image", "url(" + akina_js_option.cover_api + "?" + bgn + ")");
 }
 $(document).ready(function () {
     $("#bg-next").click(function () {
@@ -603,12 +603,12 @@ function loadHls(){
 
 function coverVideoIni() {
     if ($('video').hasClass('hls')) {
-        if (mashiro_global.variables.has_hls){
+        if (akina_js_global.variables.has_hls){
             loadHls();
         }else{
             $.getScript("https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/js/src/16.hls.js", function(){
                 loadHls();
-                mashiro_global.variables.has_hls = true;
+                akina_js_global.variables.has_hls = true;
               });
         }
         //console.info('ini:coverVideoIni()');
@@ -639,7 +639,7 @@ function tableOfContentScroll(flag) {
     } else {
         if (flag) {
             var id = 1,
-                heading_fix = mashiro_option.entry_content_theme == "sakura" ? $("article").hasClass("type-post") ? $("div").hasClass("pattern-attachment-img") ? -75 : 200 : 375 : window.innerHeight / 2;
+                heading_fix = akina_js_option.entry_content_theme == "sakura" ? $("article").hasClass("type-post") ? $("div").hasClass("pattern-attachment-img") ? -75 : 200 : 375 : window.innerHeight / 2;
             $(".entry-content , .links").children("h1,h2,h3,h4,h5").each(function () {
                 var hyphenated = "toc-head-" + id;
                 this.id = hyphenated;
@@ -660,7 +660,7 @@ var pjaxInit = function () {
     no_right_click();
     click_to_view_image();
     original_emoji_click();
-    mashiro_global.font_control.ini();
+    akina_js_global.font_control.ini();
     $("p").remove(".head-copyright");
     try {
         code_highlight_style();
@@ -780,7 +780,7 @@ function grin(tag, type, before, after) {
 
 function add_copyright() {
     document.body.addEventListener("copy", function (e) {
-        if (window.getSelection().toString().length > 30 && mashiro_option.clipboardCopyright) {
+        if (window.getSelection().toString().length > 30 && akina_js_option.clipboardCopyright) {
             setClipboardText(e);
         }
         addComment.createButterbar("复制成功！<br>Copied to clipboard successfully!", 1000);
@@ -788,8 +788,8 @@ function add_copyright() {
 
     function setClipboardText(event) {
         event.preventDefault();
-        var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + mashiro_option.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + mashiro_option.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
-        var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + mashiro_option.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + mashiro_option.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+        var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + akina_js_option.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + akina_js_option.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
+        var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + akina_js_option.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + akina_js_option.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
         if (event.clipboardData) {
             event.clipboardData.setData("text/html", htmlData);
             event.clipboardData.setData("text/plain", textData);
@@ -814,7 +814,7 @@ function getqqinfo() {
         cached.filter('#author').val(getCookie('user_author'));
         cached.filter('#email').val(getCookie('user_qq') + '@qq.com');
         cached.filter('#qq').val(getCookie('user_qq'));
-        if (mashiro_option.qzone_autocomplete) {
+        if (akina_js_option.qzone_autocomplete) {
             cached.filter('#url').val('https://user.qzone.qq.com/' + getCookie('user_qq'));
         }
         if (cached.filter('#qq').val()) {
@@ -829,12 +829,12 @@ function getqqinfo() {
         if ($reg.test(qq)) {
             $.ajax({
                 type: 'get',
-                url: mashiro_option.qq_api_url + '?qq=' + qq + '&_wpnonce=' + Poi.nonce,
+                url: akina_js_option.qq_api_url + '?qq=' + qq + '&_wpnonce=' + Poi.nonce,
                 dataType: 'json',
                 success: function (data) {
                     cached.filter('#author').val(data.name);
                     cached.filter('#email').val($.trim(qq) + '@qq.com');
-                    if (mashiro_option.qzone_autocomplete) {
+                    if (akina_js_option.qzone_autocomplete) {
                         cached.filter('#url').val('https://user.qzone.qq.com/' + $.trim(qq));
                     }
                     $('div.comment-user-avatar img').attr('src', 'https://q2.qlogo.cn/headimg_dl?dst_uin=' + qq + '&spec=100');
@@ -918,7 +918,7 @@ function getqqinfo() {
 }
 
 function mail_me() {
-    var mail = "mailto:" + mashiro_option.email_name + "@" + mashiro_option.email_domain;
+    var mail = "mailto:" + akina_js_option.email_name + "@" + akina_js_option.email_domain;
     window.open(mail);
 }
 
@@ -958,9 +958,9 @@ function load_bangumi() {
     }
 }
 
-mashiro_global.ini.normalize();
-loadCSS(mashiro_option.jsdelivr_css_src);
-loadCSS(mashiro_option.entry_content_theme_src);
+akina_js_global.ini.normalize();
+loadCSS(akina_js_option.jsdelivr_css_src);
+loadCSS(akina_js_option.entry_content_theme_src);
 loadCSS("https://at.alicdn.com/t/font_679578_qyt5qzzavdo39pb9.css");
 loadCSS("https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC");
 (function webpackUniversalModuleDefinition(b, a) {
@@ -1284,7 +1284,7 @@ var home = location.href,
             });
         },
         AH: function () {
-            if (Poi.windowheight == 'auto' && mashiro_option.windowheight == 'auto') {
+            if (Poi.windowheight == 'auto' && akina_js_option.windowheight == 'auto') {
                 if ($('h1.main-title').length > 0) {
                     var _height = $(window).height() + "px";
                     $('#centerbg').css({
@@ -1332,7 +1332,7 @@ var home = location.href,
                 $(this).next().slideToggle('fast');
                 return false;
             });
-            if (mashiro_option.baguetteBoxON) {
+            if (akina_js_option.baguetteBoxON) {
                 baguetteBox.run('.entry-content', {
                     captions: function (element) {
                         return element.getElementsByTagName('img')[0].alt;
@@ -1344,7 +1344,7 @@ var home = location.href,
                 $('.js-toggle-search').toggleClass('is-active');
                 $('.js-search').toggleClass('is-visible');
                 $('html').css('overflow-y', 'hidden');
-                if (mashiro_option.live_search) {
+                if (akina_js_option.live_search) {
                     var QueryStorage = [];
                     search_a(Poi.api + "sakura/v1/cache_search/json?_wpnonce=" + Poi.nonce);
 
@@ -1799,14 +1799,14 @@ $(function () {
             });
         }).on('pjax:send', function () {
             $("#bar").css("width", "0%");
-            if (mashiro_option.NProgressON) NProgress.start();
+            if (akina_js_option.NProgressON) NProgress.start();
             Siren.MNH();
         }).on('pjax:complete', function () {
             Siren.AH();
             Siren.PE();
             Siren.CE();
-            if (mashiro_option.NProgressON) NProgress.done();
-            mashiro_global.ini.pjax();
+            if (akina_js_option.NProgressON) NProgress.done();
+            akina_js_global.ini.pjax();
             $("#loading").fadeOut(500);
             if (Poi.codelamp == 'open') {
                 self.Prism.highlightAll(event)
