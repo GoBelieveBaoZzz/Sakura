@@ -66,7 +66,7 @@
 		</div>
 		<div class="m-search">
 			<form class="m-search-form" method="get" action="<?php echo home_url(); ?>" role="search">
-				<input class="m-search-input" type="search" name="s" placeholder="<?php _e('Search...', 'sakura') /*搜索...*/?>" required>
+				<input class="m-search-input" type="search" name="s" placeholder="<?php _e('Search...', 'akina') /*搜索...*/?>" required>
 			</form>
 		</div>
 		<?php wp_nav_menu( array( 'depth' => 2, 'theme_location' => 'primary', 'container' => false ) ); ?>
@@ -80,7 +80,7 @@
 		<?php if(akina_option('live_search')){ ?>
 			<div class="micro">
 				<i class="iconfont icon-search"></i>
-				<input id="search-input" class="text-input" type="search" name="s" placeholder="<?php _e('Want to find something?', 'sakura') /*想要找点什么呢*/?>" required>
+				<input id="search-input" class="text-input" type="search" name="s" placeholder="<?php _e('Want to find something?', 'akina') /*想要找点什么呢*/?>" required>
 			</div>
 			<div class="ins-section-wrapper">
                 <a id="Ty" href="#"></a>
@@ -88,9 +88,9 @@
             </div>
 		<?php }else{ ?>
 			<div class="micro">
-				<p class="micro mb-"><?php _e('Want to find something?', 'sakura') /*想要找点什么呢*/?></p>
+				<p class="micro mb-"><?php _e('Want to find something?', 'akina') /*想要找点什么呢*/?></p>
 				<i class="iconfont icon-search"></i>
-				<input class="text-input" type="search" name="s" placeholder="<?php _e('Search', 'sakura') ?>" required>
+				<input class="text-input" type="search" name="s" placeholder="<?php _e('Search', 'akina') ?>" required>
 			</div>
 		<?php } ?>
 		</div>

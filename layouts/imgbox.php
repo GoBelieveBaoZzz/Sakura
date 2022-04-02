@@ -28,7 +28,7 @@
                 <li><a href="<?php echo akina_option('telegram', ''); ?>" target="_blank" class="social-lofter" title="telegram"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/telegram.svg"/></a></li>
                 <?php } ?>
                 <?php if (akina_option('qq')){ ?>
-                <li class="qq"><a href="<?php echo akina_option('qq', ''); ?>" title="Initiate chat ?"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qq.png"/></a></li>
+                <li class="qq"><a href="<?php echo akina_option('qq', ''); ?>" title="QQ"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qq.png"/></a></li>
                 <?php } ?>
                 <?php if (akina_option('qzone')){ ?>
                 <li><a href="<?php echo akina_option('qzone', ''); ?>" target="_blank" class="social-qzone" title="qzone"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qzone.png"/></a></li>
@@ -87,7 +87,7 @@
 		<li><a href="<?php echo akina_option('telegram', ''); ?>" target="_blank" class="social-lofter" title="telegram"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/telegram.svg"/></a></li>
 		<?php } ?>
 		<?php if (akina_option('qq')){ ?>
-		<li class="qq"><a href="<?php echo akina_option('qq', ''); ?>" title="Initiate chat ?"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qq.png"/></a></li>
+		<li class="qq"><a href="<?php echo akina_option('qq', ''); ?>" title="QQ"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qq.png"/></a></li>
 		<?php } ?>
 		<?php if (akina_option('qzone')){ ?>
 		<li><a href="<?php echo akina_option('qzone', ''); ?>" target="_blank" class="social-qzone" title="qzone"><img src="https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/sns/qzone.png"/></a></li>

@@ -249,7 +249,7 @@ msgstr ""
 
 #: inc/options-framework.php:182 inc/options-framework.php:183
 #: inc/options-framework.php:412
-msgid "Sakura Options"
+msgid "Akina Options"
 msgstr ""
 
 #: inc/options-framework.php:228
@@ -476,11 +476,11 @@ msgid "Site title"
 msgstr ""
 
 #: options.php:115
-msgid "Mashiro's Blog"
+msgid "Akina's Blog"
 msgstr ""
 
 #: options.php:122
-msgid "Mashiro"
+msgid "Akina"
 msgstr ""
 
 #: options.php:128
@@ -1177,7 +1177,7 @@ msgstr ""
 
 #: options.php:763
 msgid ""
-"A front-ed proxy for Gravatar, eg. gravatar.2heng.xin/avatar . Leave it "
+"A front-ed proxy for Gravatar, eg. cdn.v2ex.com/gravatar . Leave it "
 "blank if you do not need."
 msgstr ""
 
@@ -1521,7 +1521,7 @@ msgstr ""
 #: options.php:1053
 #, php-format
 msgid ""
-"Theme Sakura v %s  |  <a href=\"https://2heng.xin/theme-sakura/\">Theme "
+"Theme Akina v %s  |  <a href=\"https://2heng.xin/theme-sakura/\">Theme "
 "document</a>  |  <a href=\"https://github.com/mashirozx/Sakura/\">Source "
 "code</a><a href=\"https://github.com/mashirozx/Sakura/releases/latest\"><img "
 "src=\"https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-"
@@ -1808,7 +1808,7 @@ msgid "Attribution-NonCommercial-ShareAlike 4.0 International"
 msgstr ""
 
 #: user/page-bangumi.php:30
-msgid "Please fill in the Bilibili UID in Sakura Options."
+msgid "Please fill in the Bilibili UID in Akina Options."
 msgstr ""
 
 #: user/page-login.php:18
