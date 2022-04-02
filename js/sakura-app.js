@@ -338,7 +338,6 @@ function checkDarkModeCookie() {
             setTimeout(function () {
                 $("#dark-bg").click();
             }, 100);
-            $("#moblieDarkLight").html('<i class="fa fa-sun-o" aria-hidden="true"></i>');
         } else {
             if (document.body.clientWidth > 860) {
                 setTimeout(function () {
@@ -347,7 +346,6 @@ function checkDarkModeCookie() {
             } else {
                 $("html").css("background", "unset");
                 $("body").removeClass("dark");
-                $("#moblieDarkLight").html('<i class="fa fa-moon-o" aria-hidden="true"></i>');
                 setCookie("dark", "0", 0.33);
             }
     }
@@ -359,20 +357,6 @@ if (!getCookie("darkcache") && (new Date().getHours() > 21 || new Date().getHour
 setTimeout(function() {
     checkDarkModeCookie();
 }, 100);
-
-function mobile_dark_light() {
-    if ($("body").hasClass("dark")) {
-        $("html").css("background", "unset");
-        $("body").removeClass("dark");
-        $("#moblieDarkLight").html('<i class="fa fa-moon-o" aria-hidden="true"></i>');
-        setCookie("dark", "0", 0.33);
-    } else {
-        $("html").css("background", "#31363b");
-        $("#moblieDarkLight").html('<i class="fa fa-sun-o" aria-hidden="true"></i>');
-        $("body").addClass("dark");
-        setCookie("dark", "1", 0.33);
-    }
-}
 
 function no_right_click() {
     $('.post-thumb img').bind('contextmenu', function (e) {
@@ -447,16 +431,10 @@ $(document).ready(function () {
 
     function closeSkinMenu() {
         $(".skin-menu").removeClass('show');
-        setTimeout(function () {
-            $(".changeSkin-gear").css("visibility", "visible");
-        }, 300);
     }
-    $(".changeSkin-gear").click(function () {
+    $("#moblieSetting").click(function () {
         $(".skin-menu").toggleClass('show');
     })
-    $(".skin-menu #close-skinMenu").click(function () {
-        closeSkinMenu();
-    });
     add_upload_tips();
 });
 var bgn = 1;
@@ -1727,52 +1705,27 @@ var home = location.href,
             document.body.addEventListener('input', POWERMODE)
         },
         GT: function () {
-            var cwidth = document.body.clientWidth,
-                cheight = window.innerHeight,
-                pc_to_top = document.querySelector(".cd-top"),
-                mb_to_top = document.querySelector("#moblieGoTop"),
-                mb_dark_light = document.querySelector("#moblieDarkLight"),
-                changeskin = document.querySelector(".changeSkin-gear");
+            var mb_to_top = document.querySelector("#moblieGoTop");
+            var mb_dark_light = document.querySelector("#moblieSetting");
 
             $(window).scroll(function() {
-                if (cwidth <= 860) {
-                    if ($(this).scrollTop() > 20) {
-                        mb_to_top.style.transform = "scale(1)";
-                        mb_dark_light.style.transform = "scale(1)";
-                    } else {
-                        mb_to_top.style.transform = "scale(0)";
-                        mb_dark_light.style.transform = "scale(0)";
-                    }
+                if ($(this).scrollTop() > 20) {
+                    mb_to_top.style.transform = "scale(1)";
+                    mb_dark_light.style.transform = "scale(1)";
                 } else {
-                    if ($(this).scrollTop() > 100) {
-                        pc_to_top.classList.add("cd-is-visible");
-                        changeskin.style.bottom = "0";
-                        if (cheight > 950) {
-                            pc_to_top.style.top = "0";
-                        } else {
-                            pc_to_top.style.top = cheight - 950 + "px";
-                        }
-                    } else {
-                        changeskin.style.bottom = "-999px";
-                        pc_to_top.style.top = "-999px";
-                        pc_to_top.classList.remove("cd-fade-out", "cd-is-visible");
-                    }
-                    if ($(this).scrollTop() > 1200) {
-                        pc_to_top.classList.add("cd-fade-out");
-                    }
+                    mb_to_top.style.transform = "scale(0)";
+                    mb_dark_light.style.transform = "scale(0)";
                 }
+                $(".skin-menu").removeClass('show');
             });
 
             //smooth scroll to top
-            pc_to_top.onclick = function() {
-                topFunction();
-            }
             mb_to_top.onclick = function() {
                 topFunction();
             }
-            mb_dark_light.onclick = function() {
-                mobile_dark_light();
-            }
+            // mb_dark_light.onclick = function() {
+            //     $(".skin-menu").toggleClass('show');
+            // }
         }
     }
 $(function () {

@@ -1910,46 +1910,7 @@ h1.page-title.mb- {
     margin-top: 100px
 }
 
-.cd-top {
-    position: fixed;
-    right: 25px;
-    top: -900px;
-    z-index: 99;
-    width: 70px;
-    height: 900px;
-    background: url(https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/scroll.png) no-repeat center;
-    background-size: contain;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-    /*cursor: url(https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/cursor/No_Disponible.cur), auto;*/
-    opacity: 1
-}
-
-.cd-top.cd-is-visible {
-    opacity: 1;
-    top: -326px
-}
-
-.cd-top.cd-fade-out {
-    opacity: 1
-}
-
-.cd-top:hover {
-    opacity: 1
-}
-
-.cd-top span {
-    display: none;
-    color: #000;
-    position: absolute;
-    bottom: 0;
-    height: 20px;
-    width: 50px;
-    text-align: center
-}
-
-#moblieGoTop,#moblieDarkLight {
-    visibility: hidden;
+#moblieGoTop,#moblieSetting {
     position: fixed;
     bottom: 60px;
     right: 10px;
@@ -1960,35 +1921,21 @@ h1.page-title.mb- {
     color: #404040;
     cursor: pointer;
     padding: 15px;
-    border-radius: 10px;
     border-radius: 12px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 5px 15px -5px rgb(0 0 0 / 20%);
     transform: scale(0);
     transition:transform .3s
 }
-#moblieGoTop:hover,#moblieDarkLight:hover {
+#moblieGoTop:hover,#moblieSetting:hover {
     background-color: #fff;
+    color: #FE9600;
     opacity: .8
 }
 
-#moblieDarkLight{
+#moblieSetting{
     bottom: 10px;
 }
 
-@media screen and (max-width:860px) {
-    .cd-top {
-        display: none;
-        height: 60px;
-        width: 50px
-    }
-    .cd-top span {
-        height: 10px;
-        width: 50px
-    }
-    #moblieGoTop,#moblieDarkLight{
-        visibility: visible;
-    }
-}
 .post-footer {
     padding: 20px 0 30px 0;
     border-bottom: 1px dashed #ddd;
@@ -6939,91 +6886,9 @@ input[type=radio]:checked:before {
     visibility: hidden
 }
 
-.changeSkin {
-    position: fixed;
-    bottom: 0;
-    right: -600px;
-    width: auto;
-    height: auto;
-    z-index: 99;
-    font-family: Ubuntu;
-    padding: 10px 20px;
-    transiton-property: right;
-    transition-duration: .3s, .3s
-}
-
-.changeSkin .keys {
-    position: relative;
-    z-index: 99
-}
-
-.changeSkin .keys span {
-    cursor: pointer
-}
-
-.changeSkin-gear {
-    position: fixed;
-    bottom: 0;
-    left: auto;
-    right: 5px;
-    width: auto;
-    height: auto;
-    z-index: 99;
-    white-space: nowrap;
-    padding: 10px 10px;
-    cursor: pointer;
-    border-radius: 10px 10px 0 0
-}
-
-.changeSkin .keys {
-    position: relative;
-    z-index: 99
-}
-
-.changeSkin .keys span {
-    cursor: pointer
-}
-
-.changeSkin .close-skinMenu {
-    position: relative;
-    z-index: 99;
-    cursor: pointer
-}
-
 .keys-line-add {
     text-align: right;
     margin-right: 22px
-}
-
-@media (max-width:860px) {
-    .changeSkin-gear {
-        visibility: hidden !important
-    }
-    .changeSkin-gear span::before {
-        content: ""
-    }
-    .changeSkin i {
-        font-size: 20px
-    }
-    .changeSkin-gear i {
-        font-size: 20px
-    }
-}
-
-.changeSkin-gear span:before {
-    content: ""
-}
-
-@media (max-width:800px) {
-    .changeSkin-gear span::before {
-        content: ""
-    }
-    .changeSkin i {
-        font-size: 20px
-    }
-    .changeSkin-gear i {
-        font-size: 20px
-    }
 }
 
 .img-preload {
@@ -8529,19 +8394,20 @@ td.hljs-ln-numbers {
 
 .skin-menu {
     position: fixed;
-    bottom: 50px;
+    bottom: 10px;
     left: auto;
-    right: 10px;
+    right: 60px;
     height: auto;
     width: 220px;
     border-radius: 5px;
     background-color: rgba(255,255,255,0.9);
-    box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
     z-index: 99;
     font-family: Ubuntu, sans-serif;
     transform: scaleX(0);
     transiton-property: transform, background;
-    transition-duration: .3s, .3s
+    transition-duration: .3s, .3s;
+    backdrop-filter: blur(9px);
 }
 
 .skin-menu.show {
