@@ -526,6 +526,12 @@ function timeSeriesReload(flag) {
 }
 timeSeriesReload();
 
+/* 首页下拉箭头 */
+function headertop_down() {
+    var coverOffset = $('#content').offset().top;
+    $('html,body').animate({scrollTop: coverOffset + 75}, 600);
+}
+
 /*视频feature*/
 function coverVideo() {
     var video = addComment.I("coverVideo");

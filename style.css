@@ -1639,7 +1639,8 @@ i.iconfont.hotpost {
     .post-list-thumb {
         padding: 0;
         border: 0;
-        box-shadow: none
+        /*box-shadow: none;*/
+        box-shadow: 0 1px 20px -8px rgb(0 0 0 / 20%);
     }
     .float-content,
     .post-content-wrap,
@@ -4168,6 +4169,95 @@ li.feature-2 {
     visibility: visible
 }
 
+/* 首页下拉箭头 */
+.headertop-bar::after {
+    content: '';
+    width: 150%;
+    height: 4.375rem;
+    background: #fff;
+    left: -25%;
+    bottom: -2.875rem;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 4;
+}
+
+.headertop-down {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    cursor: pointer;
+    z-index: 5;
+}
+@media (max-width: 860px) {
+    .headertop-down {
+        display: none
+    }
+}
+
+.headertop-down i {
+    font-size: 28px;
+    color: #fff;
+    -ms-transform: scale(1.5,1); /* IE 9 */
+    -webkit-transform: scale(1.5,1); /* Safari */
+    transform: scale(1.5,1); /* Standard syntax */
+}
+
+/*波浪CSS*/
+#banner_wave_1 {
+    height: 65px;
+    background: url(https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/wave1.png) repeat-x;
+    _filter: alpha(opacity=80);
+    position: absolute;
+    bottom: 0;
+    width: 400%;
+    left: -236px;
+    z-index: 5;
+    opacity: 1;
+    transition-duration: .4s,.4s;
+    animation-name: move2;
+    animation-duration: 240s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#banner_wave_2 {
+    height: 80px;
+    background: url(https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/wave2.png) repeat-x;
+    _filter: alpha(opacity=80);
+    position: absolute;
+    bottom: 0;
+    width: 400%;
+    left: 0;
+    z-index: 4;
+    opacity: 1;
+    transition-duration: .4s, .4s;
+    animation-name: move2;
+    animation-duration: 160s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@media (max-width: 860px) {
+    #banner_wave_1,
+    #banner_wave_2 {
+        display: none
+    }
+}
+/* move1和move2只是方向不同，根据喜好自选即可。 */
+/* 没做浏览器适配，具体哪些浏览器会生效未知，反正Chrome没什么问题。*/
+@keyframes move1 {
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes move2 {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
 .searchbox {
     float: right;
     height: 75px;
@@ -5299,6 +5389,7 @@ i.iconfont.down {
         -webkit-transform: translateX(250px) translateY(0);
         background: 0 0 !important;
         box-shadow: inherit;
+        transition: background, transform .5s !important;
     }
     .iconflat {
         background: 0 0;

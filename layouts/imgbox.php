@@ -3,6 +3,14 @@
 //https://api.mashiro.top/cover
 
 ?>
+<!-- 首页下拉箭头 -->
+<div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+</div>
+<!--波浪动画效果-->
+<style>.header-info::before{display: none !important;opacity: 0 !important;}</style>
+<div id="banner_wave_1"></div>
+<div id="banner_wave_2"></div>
 <figure id="centerbg" class="centerbg">
 <?php if ( !akina_option('focus_infos') ){ ?>
 	<div class="focusinfo">
