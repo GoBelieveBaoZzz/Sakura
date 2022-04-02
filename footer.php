@@ -11,11 +11,11 @@
 
 ?>
 	</div><!-- #content -->
-	<?php 
+	<?php
 		if(akina_option('general_disqus_plugin_support')){
 			get_template_part('layouts/duoshuo');
 		}else{
-			comments_template('', true); 
+			comments_template('', true);
 		}
 	?>
 	</div><!-- #page Pjax container-->
@@ -132,10 +132,10 @@
         </ul>
     </div>
     <div class="font-family-controls row-container">
-        <button type="button" class="control-btn-serif selected" data-mode="serif" 
-                onclick="mashiro_global.font_control.change_font()">这个字体</button>
-        <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" 
-                onclick="mashiro_global.font_control.change_font()">那个字体</button>
+        <button type="button" class="control-btn-serif selected" data-mode="serif"
+                onclick="akina_js_global.font_control.change_font()">这个字体</button>
+        <button type="button" class="control-btn-sans-serif" data-mode="sans-serif"
+                onclick="akina_js_global.font_control.change_font()">那个字体</button>
     </div>
 </div>
 <canvas id="night-mode-cover"></canvas>
