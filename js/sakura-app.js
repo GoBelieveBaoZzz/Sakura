@@ -1472,33 +1472,50 @@ var home = location.href,
         },
         NH: function () {
             setHeader();
+            setToolBtn();
             window.resizeTimer = null;
             $(window).resize( function  () {
                 clearTimeout(window.resizeTimer);
                 window.resizeTimer = setTimeout(function (){
                     $(window).unbind('scroll').scroll(function () {
                         setHeader();
+                        setToolBtn();
                     });
                 }, 500)
             });
             function setHeader(){
-                var h1 = 0;
-                var el = "";
-                if(document.body.clientWidth > 860){
-                    el = ".site-header";
-                } else {
-                    el = ".openNav";
-                }
-                $(window).unbind('scroll').scroll(function () {
+                //头部显示隐藏
+                var h = 0;
+                var el = document.body.clientWidth > 860 ? ".site-header" : ".openNav";
+                $(window).scroll(function () {
                     var s = $(document).scrollTop(),
-                        cached = $(el);
-                    if (s == h1) {
-                        cached.removeClass('yya');
+                        header = $(el);
+                    if (s === h) {
+                        header.removeClass('yya');
                     }
-                    if (s > h1) {
-                        cached.addClass('yya');
+                    if (s > h) {
+                        header.addClass('yya');
                     }
+                })
+            }
+            function setToolBtn(){
+                var mb_to_top = document.querySelector("#moblieGoTop");
+                var mb_dark_light = document.querySelector("#moblieSetting");
+
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 50) {
+                        mb_to_top.style.transform = "scale(1)";
+                        mb_dark_light.style.transform = "scale(1)";
+                    } else {
+                        mb_to_top.style.transform = "scale(0)";
+                        mb_dark_light.style.transform = "scale(0)";
+                    }
+                    $(".skin-menu").removeClass('show');
                 });
+                //smooth scroll to top
+                mb_to_top.onclick = function() {
+                    topFunction();
+                }
             }
         },
         XLS: function () {
@@ -1709,36 +1726,12 @@ var home = location.href,
             POWERMODE.colorful = true;
             POWERMODE.shake = false;
             document.body.addEventListener('input', POWERMODE)
-        },
-        GT: function () {
-            var mb_to_top = document.querySelector("#moblieGoTop");
-            var mb_dark_light = document.querySelector("#moblieSetting");
-
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 20) {
-                    mb_to_top.style.transform = "scale(1)";
-                    mb_dark_light.style.transform = "scale(1)";
-                } else {
-                    mb_to_top.style.transform = "scale(0)";
-                    mb_dark_light.style.transform = "scale(0)";
-                }
-                $(".skin-menu").removeClass('show');
-            });
-
-            //smooth scroll to top
-            mb_to_top.onclick = function() {
-                topFunction();
-            }
-            // mb_dark_light.onclick = function() {
-            //     $(".skin-menu").toggleClass('show');
-            // }
         }
     }
 $(function () {
     Siren.AH();
     Siren.PE();
     Siren.NH();
-    Siren.GT();
     Siren.XLS();
     Siren.XCS();
     Siren.XCP();
