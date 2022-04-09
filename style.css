@@ -1253,6 +1253,7 @@ a:hover {
     display: none;
     opacity: 1;
     position: absolute;
+    font-size: 14px;
     background: #fff;
     padding: 10px;
     top: 46px;
@@ -4079,7 +4080,8 @@ li.feature-2 {
     margin-top: 30px;
     margin-left: 10px;
     list-style: none;
-    display: inline-block
+    display: inline-block;
+    cursor: pointer;
 }
 
 .top-social img {
@@ -8526,6 +8528,15 @@ td.hljs-ln-numbers {
 
 .menu-list li:hover {
     background-color: #fc3;
+    color: #fff
+}
+
+.menu-list li.selected{
+    background-color: #fc3;
+    color: #fff
+}
+.menu-list #dark-bg.selected{
+    background-color: #3daee9 !important;
     color: #fff
 }
 

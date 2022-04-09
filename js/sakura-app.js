@@ -104,13 +104,9 @@ function post_list_show_animation() {
     }
 }
 akina_js_global.font_control = new function () {
-    this.change_font = function () {
-        if ($("body").hasClass("serif")) {
-            $("body").removeClass("serif");
-            $(".control-btn-serif").removeClass("selected");
-            $(".control-btn-sans-serif").addClass("selected");
-            setCookie("font_family", "sans-serif", 30);
-        } else {
+    //A:serif，B:sans-serif
+    this.change_font = function (type) {
+        if (type === 'A') {
             $("body").addClass("serif");
             $(".control-btn-serif").addClass("selected");
             $(".control-btn-sans-serif").removeClass("selected");
@@ -118,12 +114,20 @@ akina_js_global.font_control = new function () {
             if (document.body.clientWidth <= 860) {
                 addComment.createButterbar("将从网络加载字体，流量请注意");
             }
+        } else {
+            $("body").removeClass("serif");
+            $(".control-btn-serif").removeClass("selected");
+            $(".control-btn-sans-serif").addClass("selected");
+            setCookie("font_family", "sans-serif", 30);
         }
     }
     this.ini = function () {
         if (document.body.clientWidth > 860) {
-            if (!getCookie("font_family") || getCookie("font_family") == "serif")
+            if (!getCookie("font_family") || getCookie("font_family") == "serif"){
                 $("body").addClass("serif");
+                $(".control-btn-serif").addClass("selected");
+                $(".control-btn-sans-serif").removeClass("selected");
+            }
         }
         if (getCookie("font_family") == "sans-serif") {
             $("body").removeClass("sans-serif");
@@ -365,6 +369,7 @@ function no_right_click() {
 }
 no_right_click();
 $(document).ready(function () {
+    var settingInit = false;
     function checkskin_bg(a) {
         return a == "none" ? "" : a
     }
@@ -388,6 +393,7 @@ $(document).ready(function () {
                     $("html").css("background", "#31363b");
                     $("body").addClass("dark");
                     setCookie("dark", "1", 0.33);
+                    setCookie("bgImgSetting", tagid, 0.33);
                 } else{
                     $("html").css("background", "unset");
                     $("body").removeClass("dark");
@@ -397,6 +403,8 @@ $(document).ready(function () {
                         addComment.I("content").style.backgroundColor = "rgba(255, 255, 255, 0.8)";
                     }, 1000);
                 }
+                $(".menu-list li").removeClass('selected');
+                $(this).addClass('selected');
                 switch (tagid) {
                     case "white-bg":
                         $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg0) + ")");
@@ -419,9 +427,9 @@ $(document).ready(function () {
                     case "bing-bg":
                         $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg6) + ")");
                         break;
-                    // case "dark-bg":
-                    //     $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg7) + ")");
-                    //     break;
+                    case "dark-bg":
+                        $("body").css("background-image", "url(" + checkskin_bg(akina_js_option.skin_bg7) + ")");
+                        break;
                 }
                 closeSkinMenu();
             });
@@ -433,6 +441,10 @@ $(document).ready(function () {
         $(".skin-menu").removeClass('show');
     }
     $("#moblieSetting").click(function () {
+        if(!settingInit){
+            akina_js_global.font_control.ini();
+            settingInit = true;
+        }
         $(".skin-menu").toggleClass('show');
     })
     add_upload_tips();

@@ -132,10 +132,10 @@
         </ul>
     </div>
     <div class="font-family-controls row-container">
-        <button type="button" class="control-btn-serif selected" data-mode="serif"
-                onclick="akina_js_global.font_control.change_font()">这个字体</button>
+        <button type="button" class="control-btn-serif" data-mode="serif"
+                onclick="akina_js_global.font_control.change_font('A')">这个字体</button>
         <button type="button" class="control-btn-sans-serif" data-mode="sans-serif"
-                onclick="akina_js_global.font_control.change_font()">那个字体</button>
+                onclick="akina_js_global.font_control.change_font('B')">那个字体</button>
     </div>
 </div>
 <canvas id="night-mode-cover"></canvas>
