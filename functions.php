@@ -815,11 +815,7 @@ function bolo_QTnextpage_arg1() {
 //Login Page style
 function custom_login()
 {
-    //echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('template_directory') . '/inc/login.css" />'."\n";
-    //echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/inc/login.css?' . SAKURA_VERSION . '" />' . "\n";
-    //echo '<script type="text/javascript" src="'.get_bloginfo('template_directory').'/js/jquery.min.js"></script>'."\n";
     echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/inc/css/login.css?' . SAKURA_VERSION . '" />' . "\n";
-    //echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jquery/jquery@1.9.0/jquery.min.js"></script>' . "\n";
 }
 
 add_action('login_head', 'custom_login');
@@ -837,44 +833,6 @@ function custom_loginlogo_url($url)
     return esc_url(home_url('/'));
 }
 add_filter('login_headerurl', 'custom_loginlogo_url');
-
-//Login Page Footer
-function custom_html()
-{
-    if (akina_option('login_bg')) {
-        $loginbg = akina_option('login_bg');
-    } else {
-        $loginbg = 'https://upyun.rm-rf.fun/sakura/manifest/jpeg/4d909b6888c5b7004ce477559a4a0b49.jpeg';
-    }
-    echo '<script type="text/javascript" src="' . get_template_directory_uri() . '/js/login.js"></script>' . "\n";
-    echo '<script type="text/javascript">' . "\n";
-    echo 'jQuery("body").prepend("<div class=\"loading\"><img src=\"https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/Sakura/images/login_loading.gif\" width=\"58\" height=\"10\"></div><div id=\"bg\"><img /></div>");' . "\n";
-    echo 'jQuery(\'#bg\').children(\'img\').attr(\'src\', \'' . $loginbg . '\').load(function(){' . "\n";
-    echo '	resizeImage(\'bg\');' . "\n";
-    echo '	jQuery(window).bind("resize", function() { resizeImage(\'bg\'); });' . "\n";
-    echo '	jQuery(\'.loading\').fadeOut();' . "\n";
-    echo '});';
-    echo '</script>' . "\n";
-    echo '<script>
-	$(document).ready(function(){
-        $(\'h1 a\').attr(\'style\',\'background-image: url(' . akina_option('logo_img') . '); \');
-		$(".forgetmenot").replaceWith(\'<p class="forgetmenot">记住我<input name="rememberme" id="rememberme" value="forever" type="checkbox"><label for="rememberme" style="float: right;margin-top: 5px;transform: scale(2);margin-right: -10px;"></label></p>\');
-	});
-	</script>';
-}
-//add_action('login_footer', 'custom_html');
-
-//Login message
-//* Add custom message to WordPress login page
-function smallenvelop_login_message($message)
-{
-    if (empty($message)) {
-        return '<p class="message"><strong>You may try 3 times for every 5 minutes!</strong></p>';
-    } else {
-        return $message;
-    }
-}
-//add_filter( 'login_message', 'smallenvelop_login_message' );
 
 //Fix password reset bug </>
 function resetpassword_message_fix($message)

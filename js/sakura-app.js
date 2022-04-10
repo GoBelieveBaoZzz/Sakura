@@ -390,7 +390,7 @@ $(document).ready(function () {
                     addComment.I("content").style.backgroundColor = "#fff";
                     addComment.I("content").offsetHeight;
                     addComment.I("content").classList.remove('notransition');
-                    $("html").css("background", "#31363b");
+                    $("html").css("background", "#171717");
                     $("body").addClass("dark");
                     setCookie("dark", "1", 0.33);
                     setCookie("bgImgSetting", tagid, 0.33);
