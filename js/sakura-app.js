@@ -475,69 +475,6 @@ function topFunction() {
     })
 }
 
-function timeSeriesReload(flag) {
-    var cached = $('#archives');
-    if (flag == true) {
-        cached.find('span.al_mon').click(function () {
-            $(this).next().slideToggle(400);
-            return false;
-        });
-        lazyload();
-    } else {
-        (function () {
-            $('#al_expand_collapse,#archives span.al_mon').css({
-                cursor: "s-resize"
-            });
-            cached.find('span.al_mon').each(function () {
-                var num = $(this).next().children('li').length;
-                $(this).children('#post-num').text(num);
-            });
-            var $al_post_list = cached.find('ul.al_post_list'),
-                $al_post_list_f = cached.find('ul.al_post_list:first');
-            $al_post_list.hide(1, function () {
-                $al_post_list_f.show();
-            });
-            cached.find('span.al_mon').click(function () {
-                $(this).next().slideToggle(400);
-                return false;
-            });
-            if (document.body.clientWidth > 860) {
-                cached.find('li.al_li').mouseover(function () {
-                    $(this).children('.al_post_list').show(400);
-                    return false;
-                });
-                if (false) {
-                    cached.find('li.al_li').mouseout(function () {
-                        $(this).children('.al_post_list').hide(400);
-                        return false;
-                    });
-                }
-            }
-            var al_expand_collapse_click = 0;
-            $('#al_expand_collapse').click(function () {
-                if (al_expand_collapse_click == 0) {
-                    $al_post_list.each(function(index){
-                        var $this = $(this),
-                        s = setTimeout(function() {
-                            $this.show(400);
-                        }, 50 * index);
-                    });
-                    al_expand_collapse_click++;
-                } else if (al_expand_collapse_click == 1) {
-                    $al_post_list.each(function(index){
-                        var $this = $(this),
-                        h = setTimeout(function() {
-                            $this.hide(400);
-                        }, 50 * index);
-                    });
-                    al_expand_collapse_click--;
-                }
-            });
-        })();
-    }
-}
-timeSeriesReload();
-
 /* 首页下拉箭头 */
 function headertop_down() {
     var coverOffset = $('#content').offset().top;
@@ -674,7 +611,6 @@ var pjaxInit = function () {
         preBG();
     });
     smileBoxToggle();
-    timeSeriesReload();
     add_copyright();
     tableOfContentScroll(flag = true);
 }
@@ -1804,7 +1740,6 @@ $(function () {
             Siren.AH();
             Siren.PE();
             Siren.CE();
-            timeSeriesReload(true);
             post_list_show_animation();
         }, false);
     }
