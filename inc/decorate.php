@@ -345,7 +345,7 @@ body.dark .sm {
     color: #377292 !important;
 }
 
-html, #main-container, .pattern-center:after, #mo-nav, .headertop-bar::after, .site-content, .comments, .site-footer, .pattern-center-blank, .yya, .blank, .changeSkin-gear, .toc, .search-form input {
+html, #main-container, .pattern-center:after, #mo-nav, .headertop-bar::after, .site-content, .comments, .site-footer, .pattern-center-blank, .blank, .changeSkin-gear, .toc, .search-form input {
     transition: background 1s;
 }
 

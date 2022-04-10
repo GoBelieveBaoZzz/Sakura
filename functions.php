@@ -1258,38 +1258,37 @@ function siren_private()
 function memory_archives_list()
 {
     if (true) {
-        $output = '<div id="archives"><p style="text-align:right;">[<span id="al_expand_collapse">' . __('All expand/collapse', 'akina') /*全部展开/收缩*/ . '</span>]<!-- (注: 点击月份可以展开)--></p>';
+        $output = '<div class="timeline"><div class="timeline-date">';
         $the_query = new WP_Query('posts_per_page=-1&ignore_sticky_posts=1&post_type=post'); //update: 加上忽略置顶文章
         $year = 0;
         $mon = 0;
-        $i = 0;
-        $j = 0;
         while ($the_query->have_posts()): $the_query->the_post();
             $year_tmp = get_the_time('Y');
             $mon_tmp = get_the_time('m');
-            $y = $year;
-            $m = $mon;
-            if ($mon != $mon_tmp && $mon > 0) {
-                $output .= '</ul></li>';
-            }
+            $day_tmp = get_the_time('d');
+            // if ($mon != $mon_tmp && $mon > 0) {
+            //     $output .= '</ul></li>';
+            // }
 
             if ($year != $year_tmp && $year > 0) {
-                $output .= '</ul>';
+                $output .= '</ul></div>';
             }
 
             if ($year != $year_tmp) {
                 $year = $year_tmp;
-                $output .= '<h3 class="al_year">' . $year . __(' ', 'year', 'akina') . /*年*/' </h3><ul class="al_mon_list">'; //输出年份
+                $output .= '<ul><h2 class="first"><a href="#nogo">' . $year_tmp . __(' ', 'year', 'akina') . '</a></h2>'; //输出年份
             }
-            if ($mon != $mon_tmp) {
-                $mon = $mon_tmp;
-                $output .= '<li class="al_li"><span class="al_mon"><span style="color:#0bf;">' . get_the_time('M') . '</span> (<span id="post-num"></span>' . __(' post(s)', 'akina') /*篇文章*/ . ')</span><ul class="al_post_list">'; //输出月份
-            }
-            $output .= '<li>' . '<a href="' . get_permalink() . '"><span style="color:#0bf;">' /*get_the_time('d'.__(' ','akina')) 日*/ . '</span>' . get_the_title() . ' <span>(' . get_post_views(get_the_ID()) . ' <span class="fa fa-fire" aria-hidden="true"></span> / ' . get_comments_number('0', '1', '%') . ' <span class="fa fa-commenting" aria-hidden="true"></span>)</span></a></li>'; //输出文章日期和标题
+            // if ($mon != $mon_tmp) {
+            //     $mon = $mon_tmp;
+            //     $output .= '<li class="al_li"><span class="al_mon"><span style="color:#0bf;">' . get_the_time('M') . '</span> (<span id="post-num"></span>' . __(' post(s)', 'akina') /*篇文章*/ . ')</span><ul class="al_post_list">'; //输出月份
+            // }
+            // $output .= '<li>' . '<a href="' . get_permalink() . '"><span style="color:#0bf;">' /*get_the_time('d'.__(' ','akina')) 日*/ . '</span>' . get_the_title() . ' <span>(' . get_post_views(get_the_ID()) . ' <span class="fa fa-fire" aria-hidden="true"></span> / ' . get_comments_number('0', '1', '%') . ' <span class="fa fa-commenting" aria-hidden="true"></span>)</span></a></li>'; //输出文章日期和标题
+
+            // li class 可设置 green
+            $output .= '<li class=""><h3>' . $mon_tmp . '.' . $day_tmp . '<span>' . $year_tmp . '</span></h3><dl><a href="' . get_permalink() . '" target="_blank">' . get_the_title() . '</a></dl></li>'; //输出文章日期和标题
         endwhile;
         wp_reset_postdata();
-        $output .= '</ul></li></ul> <!--<ul class="al_mon_list"><li><ul class="al_post_list" style="display: block;"><li>博客已经萌萌哒运行了<span id="monitorday"></span>天</li></ul></li></ul>--></div>';
-        #update_option('memory_archives_list', $output);
+        $output .= '</div>';
     }
     echo $output;
 }

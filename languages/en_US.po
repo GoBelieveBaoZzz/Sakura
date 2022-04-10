@@ -181,10 +181,6 @@ msgstr ""
 msgid "This guy is so lazy ╮(╯▽╰)╭"
 msgstr ""
 
-#: functions.php:1335
-msgid "All expand/collapse"
-msgstr ""
-
 #: functions.php:1356 options.php:980
 msgid " "
 msgstr ""

@@ -973,8 +973,8 @@ a:hover {
     width: 100%;
     height: 75px;
     background: 0 0;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
+    /*-webkit-transition: all .4s ease;*/
+    /*transition: all .4s ease;*/
     position: fixed;
     z-index: 9999;
     top: 0
@@ -8544,3 +8544,112 @@ h1[id*=toc-head]::before,h2[id*=toc-head]::before,h3[id*=toc-head]::before,h4[id
 .bangumi-next i {
     color: orange;
 }
+
+/*时间轴开始*/
+.timeline {
+    background:url(https://upyun.rm-rf.fun/sakura/image/timeline/line04.gif) repeat-y 187px 0;
+    overflow:hidden;
+    position:relative;
+}
+.timeline *{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.timeline .timeline-date {
+    overflow:hidden;
+    position:relative;
+}
+.timeline .timeline-date h2 {
+    background:#fff url(https://upyun.rm-rf.fun/sakura/image/timeline/icon06.gif) no-repeat 158px 0;
+    height:59px;
+    font-size:25px;
+    font-weight:normal;
+    padding-left:45px;
+    margin-bottom:74px;
+}
+.timeline .timeline-date h2.first {
+    position:absolute;
+    left:0;
+    top:0;
+    width:935px;
+    z-index:99;
+}
+.timeline .timeline-date h2 a {
+    color:#00bbff;
+    display:inline-block;
+    zoom:1;
+    background:url(https://upyun.rm-rf.fun/sakura/image/timeline/icon08.gif) no-repeat right 50%;
+    padding-right:17px;
+    margin:21px 97px 0 0;
+}
+.timeline .timeline-date h2 a:hover {
+    text-decoration:none;
+}
+.timeline .timeline-date h2 img {
+    vertical-align:-5px;
+}
+.timeline .timeline-date h2.date02 {
+    background:none;
+}
+.timeline .timeline-date ul li {
+    background:url(https://upyun.rm-rf.fun/sakura/image/timeline/icon07.gif) no-repeat 180px 0;
+    padding-bottom:30px;
+    zoom:1;
+}
+.timeline .timeline-date ul li:hover h3 {
+    color: #1db702;
+}
+.timeline .timeline-date ul li:hover h3 span {
+    color: #a8dda3;
+}
+.timeline .timeline-date ul li:hover dl {
+    color: #1db702;
+}
+.timeline .timeline-date ul li:hover dl a {
+    color: #1db702;
+}
+.timeline .timeline-date ul li.last {
+    padding-bottom:0;
+}
+.timeline .timeline-date ul li:after {
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.timeline .timeline-date ul li h3 {
+    float:left;
+    width:168px;
+    text-align:right;
+    padding-right:19px;
+    color:#c3c3c3;
+}
+.timeline .timeline-date ul li h3 span {
+    display:block;
+    color:#d0d0d0;
+    font-size:12px;
+}
+.timeline .timeline-date ul li dl {
+    float:left;
+    padding-left:60px;
+    margin-top:-5px;
+    width: calc(100% - 170px);
+    cursor: pointer;
+    color: #787878;
+    font-size: 22px;
+}
+.timeline .timeline-date ul li dl a {
+    color: #787878;
+}
+.timeline .timeline-date ul li.green h3 {
+    color:#1db702;
+}
+.timeline .timeline-date ul li.green h3 span {
+    color:#a8dda3;
+}
+.timeline .timeline-date ul li.green dl {
+    margin-top:-8px;
+}
+/*时间轴结束*/

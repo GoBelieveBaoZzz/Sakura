@@ -183,10 +183,6 @@ msgstr ""
 msgid "This guy is so lazy ╮(╯▽╰)╭"
 msgstr "这家伙好懒╮(╯▽╰)╭"
 
-#: functions.php:1335
-msgid "All expand/collapse"
-msgstr "全部展开/收缩"
-
 #: functions.php:1356 options.php:980
 msgid " "
 msgstr ""
