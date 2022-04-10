@@ -49,6 +49,10 @@ add_action('rest_api_init', function () {
         'methods' => 'POST',
         'callback' => 'bgm_bilibili',
     ));
+    register_rest_route('sakura/v1', '/image/bing', array(
+        'methods' => 'GET',
+        'callback' => 'get_bing_img',
+    ));
 });
 
 /**
@@ -100,7 +104,7 @@ function upload_image(WP_REST_Request $request) {
 
 /*
  * 随机封面图 rest api
- * @rest api接口路径：https://sakura.2heng.xin/wp-json/sakura/v1/image/cover
+ * @rest api接口路径：/wp-json/sakura/v1/image/cover
  */
 function cover_gallery() {
     $imgurl = Images::cover_gallery();
@@ -113,7 +117,7 @@ function cover_gallery() {
 
 /*
  * 随机文章特色图 rest api
- * @rest api接口路径：https://sakura.2heng.xin/wp-json/sakura/v1/image/feature
+ * @rest api接口路径：/wp-json/sakura/v1/image/feature
  */
 function feature_gallery() {
     $imgurl = Images::feature_gallery();
@@ -126,7 +130,7 @@ function feature_gallery() {
 
 /*
  * update database rest api
- * @rest api接口路径：https://sakura.2heng.xin/wp-json/sakura/v1/database/update
+ * @rest api接口路径：/wp-json/sakura/v1/database/update
  */
 function update_database() {
     if (akina_option('cover_cdn_options') == "type_1") {
@@ -140,7 +144,7 @@ function update_database() {
 
 /*
  * 定制实时搜索 rest api
- * @rest api接口路径：https://sakura.2heng.xin/wp-json/sakura/v1/cache_search/json
+ * @rest api接口路径：/wp-json/sakura/v1/cache_search/json
  * @可在cache_search_json()函数末尾通过设置 HTTP header 控制 json 缓存时间
  */
 function cache_search_json() {
@@ -166,7 +170,7 @@ function cache_search_json() {
 
 /**
  * QQ info
- * https://sakura.2heng.xin/wp-json/sakura/v1/qqinfo/json
+ * /wp-json/sakura/v1/qqinfo/json
  */
 function get_qq_info(WP_REST_Request $request) {
     if (!check_ajax_referer('wp_rest', '_wpnonce', false)) {
@@ -193,7 +197,7 @@ function get_qq_info(WP_REST_Request $request) {
 
 /**
  * QQ头像链接解密
- * https://sakura.2heng.xin/wp-json/sakura/v1/qqinfo/avatar
+ * /wp-json/sakura/v1/qqinfo/avatar
  */
 function get_qq_avatar() {
     $encrypted = $_GET["qq"];
@@ -228,5 +232,22 @@ function bgm_bilibili() {
         $html = preg_replace("/\s+|\n+|\r/", ' ', $bgm->get_bgm_items($page));
         $response = new WP_REST_Response($html, 200);
     }
+    return $response;
+}
+
+/*
+ * 获取bing壁纸
+ * @rest api接口路径：/wp-json/sakura/v1/image/bing
+ */
+function get_bing_img() {
+    $imgurl = '';
+    $str = file_get_contents('https://cn.bing.com/HPImageArchive.aspx?idx=0&n=1');
+    if(preg_match("/<url>(.+?)<\/url>/i",$str,$matches)){
+        $imgurl = 'https://cn.bing.com'.$matches[1];
+    }
+    $data = array('bing image');
+    $response = new WP_REST_Response($data);
+    $response->set_status(302);
+    $response->header('Location', $imgurl);
     return $response;
 }

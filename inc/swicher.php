@@ -33,7 +33,7 @@ akina_js_option.skin_bg2 = "https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/i
 akina_js_option.skin_bg3 = "https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/bg/star02.png";
 akina_js_option.skin_bg4 = "https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/bg/kyotoanimation.png";
 akina_js_option.skin_bg5 = "https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/img/bg/dot_orange.gif";
-akina_js_option.skin_bg6 = "https://api.mashiro.top/bing/";
+akina_js_option.skin_bg6 = "https://blog.rm-rf.fun/wp-json/sakura/v1/image/bing";
 akina_js_option.skin_bg7 = "https://cdn.jsdelivr.net/gh/qq1041663097/cdn@1.0.0/other-sites/api-index/images/me.png";
 <?php } ?>
 
