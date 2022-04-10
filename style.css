@@ -1596,8 +1596,19 @@ i.iconfont.hotpost {
     float: right;
     padding-right: 30px;
     padding-left: 0;
+    height: 270px;
     width: 40%;
     margin: 20px 10px 0 10px
+}
+
+.post-content-wrap .post-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.post-content-wrap .post-bottom i {
+    font-size: 22px;
 }
 
 .float-content {
@@ -1625,7 +1636,6 @@ i.iconfont.hotpost {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    height: 67.5px;
     overflow: hidden
 }
 
@@ -1655,7 +1665,8 @@ i.iconfont.hotpost {
         padding: 20px !important;
         float: none !important;
         box-shadow: none;
-        border-top: 0
+        border-top: 0;
+        height: inherit;
     }
     .post-list-thumb::before {
         content: '';
@@ -1673,9 +1684,6 @@ i.iconfont.hotpost {
         box-shadow: none;
         padding: 0;
         margin: 0
-    }
-    .post-bottom {
-        text-align: right
     }
     .post-thumb a {
         border-radius: 10px !important
@@ -3654,7 +3662,7 @@ li.feature-2 {
     padding: 0;
     background-position: top center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     background-size: cover;
     z-index: -1
 }
