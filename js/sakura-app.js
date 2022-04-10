@@ -619,7 +619,7 @@ function copy_code_block() {
         $(this).after('<a class="copy-code" href="javascript:" data-clipboard-target="#hljs-' + i + '" title="拷贝代码"><i class="fa fa-clipboard" aria-hidden="true"></i></a>');
         $(this).after('<a class="zoom" href="javascript:" title="放大/缩小"><i class="fa fa-arrows-alt fa-compress" aria-hidden="true"></i></a>');
     });
-    $('body').on('click','.zoom',function(){
+    $('body').off('click','.zoom').on('click','.zoom',function(){
         $(this).parent().toggleClass('code-block-fullscreen');
         $(this).children().toggleClass('fa-arrows-alt');
         $('html').toggleClass('code-block-fullscreen-html-scroll');
