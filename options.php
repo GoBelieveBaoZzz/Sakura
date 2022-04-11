@@ -243,6 +243,7 @@ function optionsframework_options()
         'options' => array(
             'type_1' => __('same as the cover of the first screen (default)', 'akina'), /*跟随第一屏封面图*/
             'type_2' => __('custom api (advanced)', 'akina'), /*外部随机图API*/
+            'type_3' => '跟随第一屏封面图（压缩）', /*跟随第一屏封面图（压缩）*/
         )
     );
 

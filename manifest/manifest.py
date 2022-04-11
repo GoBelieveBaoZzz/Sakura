@@ -30,7 +30,7 @@ class Single(object):
     im = Image.open('gallary/' + self.file).convert('RGB')
     im.save(self.jpeg, 'JPEG') # todo: TinyPNG API
     im.save(self.webp, 'WEBP')
-    im.thumbnail((450, 300))
+    im.thumbnail((900, 600))
     im.save(self.jpeg_th, 'JPEG')  # todo: TinyPNG API
     im.save(self.webp_th, 'WEBP')
 

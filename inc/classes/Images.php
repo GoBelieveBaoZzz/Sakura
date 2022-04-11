@@ -166,6 +166,16 @@ class Images
     public static function feature_gallery() {
         if (akina_option('post_cover_options') == "type_2") {
             $imgurl = akina_option('post_cover');
+        } else if (akina_option('post_cover_options') == "type_3") {
+            global $sakura_image_array;
+            $img_array = json_decode($sakura_image_array, true);
+            $img = array_rand($img_array);
+            $img_domain = akina_option('cover_cdn') ? akina_option('cover_cdn') : get_template_directory_uri();
+            if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+                $imgurl = $img_domain . "/manifest/" . $img_array[$img]["webp"][1];
+            } else {
+                $imgurl = $img_domain . "/manifest/" . $img_array[$img]["jpeg"][1];
+            }
         } else {
             $imgurl = self::cover_gallery();
         }
